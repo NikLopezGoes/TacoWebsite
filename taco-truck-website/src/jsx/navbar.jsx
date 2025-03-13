@@ -1,13 +1,14 @@
-import React from 'react';
-import '../css/navbar.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "../css/navbar.css";
 
 function NavBar() {
   return (
     <nav className="navbar">
-      <div className="logo">Taco My Friend?</div>
+      <div className="logo">Taco Truck</div>
       <ul className="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#menu">Menu</a></li>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/menu">Menu</Link></li>
         <li><a href="#about">About Us</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>

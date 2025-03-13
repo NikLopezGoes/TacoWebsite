@@ -1,21 +1,27 @@
-
-import React from 'react';
-import NavBar from './jsx/navbar';
-import Hero from './jsx/hero';
-import AboutUs from './jsx/aboutUs';
-import Menu from './jsx/menu';
-import Footer from './jsx/footer';
-
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavBar from "./jsx/navbar";
+import Hero from "./jsx/hero";
+import AboutUs from "./jsx/aboutUs";
+import Menu from "./jsx/menu";  // Menu Page
+import Footer from "./jsx/footer";
+import "./css/index.css";
 
 function App() {
   return (
-    <>
+    <Router>
       <NavBar />
-      <Hero />
-      <AboutUs />
-      <Menu />
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Hero />
+            <AboutUs />
+          </>
+        } />
+        <Route path="/menu" element={<Menu />} />
+      </Routes>
       <Footer />
-    </>
+    </Router>
   );
 }
 

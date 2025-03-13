@@ -1,18 +1,25 @@
 .about-us {
-    padding: 4rem 2rem;
-    text-align: center;
-  }
-  
-  .about-us h2 {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-  }
-  
-  .about-us p {
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.5;
-  }
-  
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-content img {
+  width: 250px; /* Adjust as needed */
+  height: auto;
+  border-radius: 10px;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  max-width: 500px;
+  line-height: 1.5;
+}

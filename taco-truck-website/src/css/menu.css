@@ -1,0 +1,40 @@
+.menu {
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  
+  .menu h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+  }
+  
+  .menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .menu-item {
+    flex: 1 1 200px;
+    max-width: 250px;
+    text-align: center;
+  }
+  
+  .menu-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .menu-item h3 {
+    margin: 0.5rem 0;
+    color: var(--primary-color);
+  }
+  
+  .menu-item p {
+    font-size: 0.9rem;
+  }
+  

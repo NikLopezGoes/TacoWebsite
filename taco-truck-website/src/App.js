@@ -1,9 +1,11 @@
+
 import React from 'react';
-import NavBar from './components/NavBar';
-import Hero from './components/Hero';
-import AboutUs from './components/AboutUs';
-import Menu from './components/Menu';
-import Footer from './components/Footer';
+import NavBar from './jsx/navbar';
+import Hero from './jsx/hero';
+import AboutUs from './jsx/aboutUs';
+import Menu from './jsx/menu';
+import Footer from './jsx/footer';
+
 
 function App() {
   return (

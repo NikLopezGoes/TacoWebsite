@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Chango&display=swap');
+
+:root {
+  --primary-color: #e53935;   /* Mexican red */
+  --secondary-color: #fbc02d; /* Mexican yellow */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Chango', sans-serif;
+}

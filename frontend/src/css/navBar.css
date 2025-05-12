@@ -1,0 +1,14 @@
+.navBar{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    padding-left: 0px;
+    background-color:#da3d3d ;
+}
+.navBar button{
+    color: black;
+    border: none;
+    cursor: pointer;
+    width: 20vw;
+    height: 5vh;
+}

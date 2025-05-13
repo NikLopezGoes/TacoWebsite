@@ -1,14 +1,29 @@
-.navBar{
-    display: flex;
-    justify-content: space-between;
-    /* align-items: center; */
-    padding-left: 0px;
-    background-color:#da3d3d ;
+.navBar {
+  background-color: #1e293b; /* slate-800 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
-.navBar button{
-    color: black;
-    border: none;
-    cursor: pointer;
-    width: 20vw;
-    height: 5vh;
+
+.navBar a {
+  color: #f8fafc; /* slate-50 */
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navBar a:hover {
+  background-color: #334155; /* slate-700 */
+  color: #e2e8f0; /* slate-200 */
+}
+
+.navBar a.active {
+  background-color: #2563eb; /* blue-600 */
+  color: white;
 }

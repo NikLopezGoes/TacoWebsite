@@ -23,27 +23,6 @@ Vite for fast builds and dev environment
 
 CSS for styling (custom + responsive)
 
-📸 Preview
-
-“The best tacos always come from a truck.”
-
-📂 Project Structure
-├── public/
-│   └── index.html
-├── src/
-│   ├── components/
-│   │   └── NavBar.jsx
-│   ├── pages/
-│   │   ├── Home.jsx
-│   │   ├── Calendar.jsx
-│   │   └── Contact.jsx
-│   ├── css/
-│   │   └── styles.css
-│   ├── App.jsx
-│   └── main.jsx
-├── .env
-├── package.json
-└── README.md
 
 🧪 Local Development
 bash
@@ -62,10 +41,7 @@ Copy
 Edit
 VITE_GOOGLE_SHEET_ID=your_sheet_id_here
 VITE_GOOGLE_API_KEY=your_api_key_here
-📬 Contact
-Have a question or want to book the truck? Reach out at kris@tacos.com!
 
-Let me know if you want a deployment guide, contribution section, or GitHub Actions setup added too.
 
 
 

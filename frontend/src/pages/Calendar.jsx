@@ -5,7 +5,9 @@ import Calendar from 'react-calendar';
 const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
 
 function CalendarPage() {
+  // we will update the state of value based on the date selected in the calendar
   const [value, setValue] = useState(new Date());
+  // this will hold all of the events that get fetched
   const [events, setEvents] = useState([]);
 
   const calendarId = 'tacomyfriend@gmail.com';
@@ -13,11 +15,13 @@ function CalendarPage() {
     calendarId
   )}/events?key=${API_KEY}&orderBy=startTime&singleEvents=true`;
 
+  // Fetch events from Google Calendar API, but only on initial render, hence the []
   useEffect(() => {
     async function fetchEvents() {
       try {
         const response = await fetch(url);
         const data = await response.json();
+        // we get all of the events from the calendar and set events state
         setEvents(data.items || []);
         console.log('Fetched Events:', data.items);
       } catch (error) {
@@ -28,46 +32,42 @@ function CalendarPage() {
     fetchEvents();
   }, []);
 
-  // 🔍 Filter events for the selected day
+  // here we comare events to value states to make sure they are the same
   const matchingEvents = events.filter((event) => {
     const eventDate = new Date(event.start.dateTime || event.start.date);
     return eventDate.toDateString() === value.toDateString();
   });
 
+
   return (
+  <div>
+    <h1>Kris Tacos Calendar</h1>
+    <div className="calendar-container">
+      <Calendar
+        onChange={setValue}
+        value={value}
+        className="react-calendar"
+      />
+    </div>
     <div>
-      <h2>Food Truck Schedule</h2>
-      <Calendar onChange={setValue} value={value} />
-
+      <h2>Details for: {value.toDateString()}</h2>
       {matchingEvents.length > 0 ? (
-        <div>
-          <h3>Schedule for {value.toDateString()}:</h3>
-          {matchingEvents.map((event) => {
-            const start = new Date(event.start.dateTime || event.start.date);
-            const end = new Date(event.end?.dateTime || event.end?.date);
-            
-            const startTime = event.start.dateTime
-              ? start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-              : 'All day';
-
-            const endTime = event.end?.dateTime
-              ? end.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-              : '';
-
-            return (
-              <div key={event.id}>
-                <strong>{event.summary}</strong>{' '}
-                {event.location && `@ ${event.location}`} — {startTime}
-                {endTime && ` to ${endTime}`}
-              </div>
-            );
-          })}
-        </div>
+        <ul>
+          {matchingEvents.map((event) => (
+            <li key={event.id}>
+              <strong>Location:</strong> {event.summary}<br />
+              <strong>Description:</strong> {event.description || 'No description available'}<br />
+              <strong>Time:</strong> {new Date(event.start.dateTime || event.start.date).toLocaleTimeString()} – {new Date(event.end.dateTime || event.end.date).toLocaleTimeString()}
+            </li>
+          ))}
+        </ul>
       ) : (
-        <p>No events scheduled for {value.toDateString()}.</p>
+        <p>No events found for this date.</p>
       )}
     </div>
-  );
+  </div>
+);
+
 }
 
 export default CalendarPage;

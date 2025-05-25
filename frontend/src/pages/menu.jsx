@@ -3,29 +3,55 @@ import React, { useState, useEffect } from 'react';
 
 function MenuPage() {
   const [menuItems, setMenuItems] = useState([]);
+  const [error, setError] = useState(null);
+
+  const SQUARE_ACCESS_TOKEN = import.meta.env.VITE_SQUARE_ACCESS_TOKEN;
 
   useEffect(() => {
-    // Simulating a fetch call to get menu items
-    const fetchMenuItems = async () => {
-      // In a real application, you would replace this with an API call
-      const items = [
-        { id: 1, name: 'Tacos', price: '$12' },
-        { id: 2, name: 'Burrito', price: '$12' },
-        { id: 3, name: 'Nachos Grande', price: '$12' },
-        { id: 4, name: 'Quesadilla', price: '$12' },
-      ];
-      setMenuItems(items);
+    const fetchMenuFromSquare = async () => {
+      try {
+        const response = await fetch(
+          'https://connect.squareup.com/v2/catalog/list?types=ITEM',
+          {
+            method: 'GET',
+            headers: {
+              Authorization: `Bearer ${SQUARE_ACCESS_TOKEN}`,
+              'Content-Type': 'application/json',
+              'Square-Version': '2024-05-15',
+            },
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        const items = data.objects || [];
+        setMenuItems(items);
+      } catch (err) {
+        console.error('Error fetching from Square:', err);
+        setError('Failed to load menu');
+      }
     };
 
-    fetchMenuItems();
+    fetchMenuFromSquare();
   }, []);
 
   return (
     <div className="menu-container">
-      <h1>Menu</h1>
+      <h1>Menus</h1>
+      {error && <p>{error}</p>}
+      <ul>
+        {menuItems.map((item) => (
+          <li key={item.id}>
+            <span className="item-name">{item.item_data.name}</span><br />
+            <span className="item-description">{item.item_data.description}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
-
 
 export default MenuPage;

@@ -1,73 +1,91 @@
-import '../css/Calendar.css';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import '../css/Calendar.css'; // Your custom CSS
+import { format } from 'date-fns';
 
 const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
+const CALENDAR_ID = 'tacomyfriend@gmail.com';
 
 function CalendarPage() {
-  // we will update the state of value based on the date selected in the calendar
   const [value, setValue] = useState(new Date());
-  // this will hold all of the events that get fetched
   const [events, setEvents] = useState([]);
 
-  const calendarId = 'tacomyfriend@gmail.com';
-  const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(
-    calendarId
-  )}/events?key=${API_KEY}&orderBy=startTime&singleEvents=true`;
-
-  // Fetch events from Google Calendar API, but only on initial render, hence the []
   useEffect(() => {
     async function fetchEvents() {
       try {
+        const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(
+          CALENDAR_ID
+        )}/events?key=${API_KEY}&orderBy=startTime&singleEvents=true`;
+
         const response = await fetch(url);
         const data = await response.json();
-        // we get all of the events from the calendar and set events state
-        setEvents(data.items || []);
-        console.log('Fetched Events:', data.items);
+
+        const formatted = (data.items || []).map((event) => ({
+          title: event.summary,
+          start: event.start.dateTime
+            ? new Date(event.start.dateTime)
+            : new Date(`${event.start.date}T00:00:00`), // handle all-day events
+
+          end: event.end.dateTime
+            ? new Date(event.end.dateTime)
+            : new Date(`${event.end.date}T00:00:00`),
+
+          description: event.description || '',
+          allDay: !event.start.dateTime,
+        }));
+
+        setEvents(formatted);
       } catch (error) {
-        console.error('Failed to fetch events:', error);
+        console.error('Error fetching events:', error);
       }
     }
 
     fetchEvents();
   }, []);
 
-  // here we comare events to value states to make sure they are the same
-  const matchingEvents = events.filter((event) => {
-    const eventDate = new Date(event.start.dateTime || event.start.date);
-    return eventDate.toDateString() === value.toDateString();
-  });
-
+  const selectedDateEvents = events.filter(
+    (event) => format(event.start, 'yyyy-MM-dd') === format(value, 'yyyy-MM-dd')
+  );
 
   return (
-  <div>
-    <h1>Kris Tacos Calendar</h1>
-    <div className="calendar-container">
-      <Calendar
-        onChange={setValue}
-        value={value}
-        className="react-calendar"
-      />
-    </div>
-    <div>
-      <h2>Details for: {value.toDateString()}</h2>
-      {matchingEvents.length > 0 ? (
-        <ul>
-          {matchingEvents.map((event) => (
-            <li key={event.id}>
-              <strong>Location:</strong> {event.summary}<br />
-              <strong>Description:</strong> {event.description || 'No description available'}<br />
-              <strong>Time:</strong> {new Date(event.start.dateTime || event.start.date).toLocaleTimeString()} – {new Date(event.end.dateTime || event.end.date).toLocaleTimeString()}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No events found for this date.</p>
-      )}
-    </div>
-  </div>
-);
+    <div className="calendar-page">
+      <h1 className="calendar-title">Kris Tacos Schedule</h1>
 
+      <Calendar onChange={setValue} value={value} />
+
+      <div className="event-list">
+        <h2>Events on {format(value, 'PPP')}:</h2>
+        {selectedDateEvents.length > 0 ? (
+          selectedDateEvents.map((event, index) => (
+            <div key={index} className="event-card">
+              <strong>{event.title}</strong>
+              <div>
+                {event.allDay ? (
+                  'All Day'
+                ) : (
+                  <>
+                    {event.start.toLocaleTimeString([], {
+                      hour: '2-digit',
+                      minute: '2-digit',
+                    })}{' '}
+                    -{' '}
+                    {event.end.toLocaleTimeString([], {
+                      hour: '2-digit',
+                      minute: '2-digit',
+                    })}
+                  </>
+                )}
+              </div>
+              <p>{event.description || 'No description'}</p>
+            </div>
+          ))
+        ) : (
+          <p>No events for this day.</p>
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default CalendarPage;

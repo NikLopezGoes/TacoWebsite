@@ -18,10 +18,10 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
+        <Route path="" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/about" element={<AboutPage />} />
         <Route path="/calendar" element={<CalendarPage />} />
       </Routes>
     </div>

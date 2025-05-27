@@ -7,6 +7,8 @@ import NavBar from './components/navBar.jsx';
 import CalendarPage from './pages/Calendar.jsx';
 import ContactPage from './pages/contact.jsx';
 import MenuPage from './pages/menu.jsx';
+import HomePage from './pages/Home.jsx';
+import AboutPage from './pages/About.jsx';
 
 
 
@@ -16,10 +18,10 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path="/home" element={<CalendarPage />} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/about" element={<CalendarPage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/calendar" element={<CalendarPage />} />
       </Routes>
     </div>

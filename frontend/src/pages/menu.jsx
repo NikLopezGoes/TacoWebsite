@@ -1,55 +1,92 @@
-import '../css/menu.css';
-import React, { useState, useEffect } from 'react';
+import "../css/menu.css";
+import React, { useState, useEffect } from "react";
 
 function MenuPage() {
-  const [menuItems, setMenuItems] = useState([]);
-  const [error, setError] = useState(null);
+const menuItems = [
+  {
+    name: 'Burrito',
+    description: 'Packed with rice, beans, cheese, lettuce, pico de gallo, tomato, and your choice of meat: chicken, steak (+$1), or al pastor.',
+    price: 'Chicken/Al Pastor: $12.00 | Steak: $13.00',
+    image: '/images/burrito.jpg',
+  },
+  {
+    name: 'Street Corn',
+    description: 'Grilled corn on the cob smothered in mayo, cotija cheese, chili powder, and lime juice. Classic Mexican elote style!',
+    price: '$5.00',
+    image: '/images/street-corn.jpg',
+  },
+  {
+    name: 'Nachos',
+    description: 'Crispy tortilla chips topped with cheese, beans, fresh veggies, and your choice of meat: chicken, steak, or al pastor.',
+    price: '$12.00',
+    image: '/images/nachos.jpg',
+  },
+  {
+    name: 'Potato',
+    description: 'Golden fried potato bites dusted with cinnamon sugar—a sweet and crispy treat.',
+    price: '$4.00',
+    image: '/images/potato.jpg',
+  },
+  {
+    name: 'Quesadilla',
+    description: 'Large grilled tortilla filled with melty cheese and your choice of chicken, steak, or al pastor. Served hot and crispy.',
+    price: '$10.00',
+    image: '/images/quesadilla.jpg',
+  },
+  {
+    name: 'Street Tacos (4 count)',
+    description: 'Four authentic tacos with your choice of meat (chicken, steak, al pastor). Chicken comes with lettuce, tomato, sour cream & cheese. Steak and al pastor come with onion & lettuce.',
+    price: '$10.00',
+    image: '/images/taco.jpg',
+  },
+  {
+    name: 'Street Taco (1 count)',
+    description: 'Single taco made to order with your choice of meat and toppings as above. Great for tasting or adding to your meal.',
+    price: '$3.00',
+    image: '/images/taco.jpg',
+  },
+  {
+    name: 'Torta',
+    description: 'A Mexican sandwich on fresh bread with beans, queso fresco, lettuce, mayo, mustard, jalapeños (optional), and your choice of meat.',
+    price: '$12.00',
+    image: '/images/torta.jpg',
+  },
+  {
+    name: 'Magonada',
+    description: 'A sweet and spicy mango treat with chamoy, Tajín, and tamarind candy. A fan-favorite refresher!',
+    price: '$5.00',
+    image: '/images/magonada.jpg',
+  },
+  {
+    name: 'Soda',
+    description: 'Ice-cold canned sodas to pair with your meal. Choose from a variety of flavors.',
+    price: '$2.50',
+    image: '/images/soda.jpg',
+  },
+  {
+    name: 'Quesabirria Tacos (3 count)',
+    description: 'Rich and cheesy beef birria tacos grilled to perfection, served with a side of warm consommé for dipping.',
+    price: '$13.00',
+    image: '/images/quesabirria.jpg',
+  },
+];
 
-  const SQUARE_ACCESS_TOKEN = import.meta.env.VITE_SQUARE_ACCESS_TOKEN;
-
-  useEffect(() => {
-    const fetchMenuFromSquare = async () => {
-      try {
-        const response = await fetch(
-          'https://connect.squareup.com/v2/catalog/list?types=ITEM',
-          {
-            method: 'GET',
-            headers: {
-              Authorization: `Bearer ${SQUARE_ACCESS_TOKEN}`,
-              'Content-Type': 'application/json',
-              'Square-Version': '2024-05-15',
-            },
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        const items = data.objects || [];
-        setMenuItems(items);
-      } catch (err) {
-        console.error('Error fetching from Square:', err);
-        setError('Failed to load menu');
-      }
-    };
-
-    fetchMenuFromSquare();
-  }, []);
 
   return (
     <div className="menu-container">
-      <h1>Menus</h1>
-      {error && <p>{error}</p>}
-      <ul>
-        {menuItems.map((item) => (
-          <li key={item.id}>
-            <span className="item-name">{item.item_data.name}</span><br />
-            <span className="item-description">{item.item_data.description}</span>
-          </li>
+      <h1>Our Menu</h1>
+      <div className="menu-grid">
+        {menuItems.map((item, idx) => (
+          <div className="menu-card" key={idx}>
+            <img src={item.image} alt={item.name} className="menu-img" />
+            <div className="menu-info">
+              <h2>{item.name}</h2>
+              <p>{item.description}</p>
+              <span className="price">{item.price}</span>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

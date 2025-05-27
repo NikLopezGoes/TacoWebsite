@@ -1,0 +1,63 @@
+.homepage-content {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fffaf0; /* soft taco-truck yellow/cream */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.7;
+}
+
+.homepage-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #d62828; /* chili red */
+}
+
+.homepage-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.homepage-content p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.homepage-content h3 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  color: #007f5f; /* green, fresh look */
+}
+
+.homepage-content ul {
+  list-style: none;
+  padding-left: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.homepage-content ul li {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.homepage-content ul li::before {
+  content: '🌮';
+  position: absolute;
+  left: 0;
+}
+
+.homepage-content a {
+  color: #d62828;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.homepage-content a:hover {
+  text-decoration: underline;
+}

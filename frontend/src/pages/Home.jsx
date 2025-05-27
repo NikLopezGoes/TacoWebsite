@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 function HomePage() {
     return (
     <div className="homepage-content">
-        <h1>Welcome to Kris' Tacos 🌮</h1>
+        <h1>Welcome to Kris' Tacos </h1>
         <h2>Authentic Mexican Flavor, Straight from Blue Earth</h2>
         <p>
             Kris' Tacos is a family-owned taco truck proudly serving the community of Blue Earth, Minnesota and the surrounding areas. 
@@ -24,14 +24,14 @@ function HomePage() {
 
         <h3>What We’re Serving</h3>
         <ul>
-            <li>🌮 Authentic street tacos with your choice of meats and fresh toppings</li>
-            <li>🌯 Burritos filled with flavor</li>
-            <li>🧀 Quesadillas made to order</li>
-            <li>🥑 Homemade salsas, refreshing drinks and so much more</li>
+            <li>Authentic street tacos with your choice of meats and fresh toppings</li>
+            <li>Burritos filled with flavor</li>
+            <li>Quesadillas made to order</li>
+            <li>Homemade salsas, refreshing drinks and so much more</li>
         </ul>
 
         <p>
-            📍 Based in Blue Earth, MN — check our <a href="/calendar">calendar</a> to see where we’re parked next!
+            Based in Blue Earth, MN — check our <a href="/calendar">calendar</a> to see where we’re parked next!
         </p>
 
         <p>

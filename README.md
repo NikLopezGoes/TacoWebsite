@@ -1,52 +1,66 @@
-🌮 Kris' Tacos
-Welcome to Kris' Tacos, a sleek and modern website for our traveling taco truck! Built with React, this site lets customers check where we’ll be next, view our delicious menu, and get in touch—all in one place.
+# TacoWebsite
 
-🚀 Features
-📍 Live Calendar – See where the taco truck will be next, updated weekly via Google Sheets.
+A responsive and modern web application for showcasing the Kris Tacos food truck menu and event schedule.
 
-🍴 Menu Showcase – View our signature tacos and seasonal specials.
+## Features
 
-📱 Responsive Design – Optimized for mobile and desktop devices.
+- React frontend powered by Vite
+- Live calendar of scheduled food truck events (Google Calendar API)
+- Fully responsive layout for mobile and desktop
+- Clean and accessible design
+- Custom branding with TacoGuy favicon and visual identity
 
-🧭 Navigation – Clean routing across pages like /home, /calendar, and /contact.
+## Project Structure
 
-⚙️ Easy Admin Updates – Admins can update the calendar via a linked Google Sheet.
+```
+TacoWebsite/
+├── frontend/
+│   ├── public/
+│   │   ├── images/
+│   │   └── index.html
+│   ├── src/
+│   │   ├── components/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   └── package.json
+└── README.md
+```
 
-🛠️ Built With
-React
+## Setup
 
-React Router
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/NikLopezGoes/TacoWebsite.git
+   cd TacoWebsite/frontend
+   ```
 
-Google Sheets API
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Vite for fast builds and dev environment
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-CSS for styling (custom + responsive)
+## Build for Production
 
+```bash
+npm run build
+```
 
-🧪 Local Development
-bash
-Copy
-Edit
-# Install dependencies
-npm install
+The static files will be output to the `dist/` directory.
 
-# Start the development server
-npm run dev
-Make sure you’ve added your Google Sheets API key and Sheet ID in a .env file for calendar integration.
+## Deployment
 
-🔐 Environment Variables Example
-ini
-Copy
-Edit
-VITE_GOOGLE_SHEET_ID=your_sheet_id_here
-VITE_GOOGLE_API_KEY=your_api_key_here
+This app is deployed using AWS Amplify. On every commit to the `main` branch, Amplify automatically runs the build process and deploys the latest version.
 
+## Customization
 
+- **Favicon**: Located in `public/images/TacoGuy.png`. You can replace this with your own icon.
+- **Google Calendar Integration**: The API key is managed securely through Amplify environment variables. Be sure to set `VITE_GOOGLE_API_KEY` in your Amplify app settings.
 
+## License
 
-
-
-
-
-
+This project is private or covered under the license of the owner. For questions or requests, contact the repository maintainer.

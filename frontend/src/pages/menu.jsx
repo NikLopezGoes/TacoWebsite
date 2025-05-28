@@ -17,7 +17,7 @@ const menuItems = [
   },
   {
     name: 'Nachos',
-    description: 'Crispy tortilla chips topped with cheese, beans, fresh veggies, and your choice of meat: chicken, steak, or al pastor.',
+    description: 'Crispy tortilla chips topped with cheese, beans, fresh veggies, and your choice of meat: chicken, steak, or al pastor. ',
     price: '$12.00',
     image: '/images/nachos.jpg',
   },

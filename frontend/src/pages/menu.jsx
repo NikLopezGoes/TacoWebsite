@@ -11,13 +11,13 @@ const menuItems = [
   },
   {
     name: 'Street Corn',
-    description: 'Grilled corn on the cob smothered in mayo, cotija cheese, chili powder, and lime juice. Classic Mexican elote style! ',
+    description: 'Grilled corn on the cob smothered in mayo, cotija cheese, chili powder, and lime juice. Classic Mexican elote style!',
     price: '$5.00',
     image: '/images/street-corn.jpg',
   },
   {
     name: 'Nachos',
-    description: 'Crispy tortilla chips topped with cheese, beans, fresh veggies, and your choice of meat: chicken, steak, or al pastor. ',
+    description: 'Crispy tortilla chips topped with cheese, beans, fresh veggies, and your choice of meat: chicken, steak, or al pastor.',
     price: '$12.00',
     image: '/images/nachos.jpg',
   },

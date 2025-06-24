@@ -58,9 +58,5 @@ This app is deployed using AWS Amplify. On every commit to the `main` branch, Am
 
 ## Customization
 
-- **Favicon**: Located in `public/images/TacoGuy.png`. You can replace this with your own icon.
 - **Google Calendar Integration**: The API key is managed securely through Amplify environment variables. Be sure to set `VITE_GOOGLE_API_KEY` in your Amplify app settings.
 
-## License
-
-This project is private or covered under the license of the owner. For questions or requests, contact the repository maintainer.

@@ -1,6 +1,6 @@
 /* Navbar Styles */
 .navBar {
-  background: linear-gradient(to right, #1e293b, #0f172a); /* slate gradient */
+  background: linear-gradient(to right, #a83232, #7b1e1e); /* slate gradient */
   display: flex;
   justify-content: center;
   align-items: center;

@@ -15,7 +15,7 @@ function Footer() {
         </div>
         <div className="footer-section footer-contact">
           <p>Email: <a href="mailto:tacomyfriend@gmail.com">tacomyfriend@gmail.com</a></p>
-          <p>Phone: (507) 399 6708</p>
+          <p>Phone: (507) 525 8243</p>
         </div>
         <div className="footer-section footer-bottom">
           <p>© 2025 Kris Tacos</p>

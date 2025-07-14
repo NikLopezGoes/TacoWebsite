@@ -27,19 +27,17 @@ function HomePage() {
                     Whether you're a regular or just stopping by, we welcome you like family. Come grab a bite and taste the difference.
                 </p>
             </section>
-
-            <section className="menu-preview">
-                <h2>What We’re Serving</h2>
-                <ul>
-                    <li>Street tacos with your choice of meats and fresh toppings</li>
-                    <li>Burritos filled with flavor</li>
-                    <li>Quesadillas made to order</li>
-                    <li>Homemade salsas, refreshing drinks, and more</li>
-                </ul>
+            <section className="contact-info">
+            <h2>Contact Info</h2>
+            <div className="contact-item">
+                <strong>Email:</strong> <span>taco@myfriend.com</span>
+            </div>
+            <div className="contact-item">
+                <strong>Phone:</strong> <span>(507) 525-8243</span>
+            </div>
             </section>
-
-            <section className="location-note">
-                <p>
+                        <section className="location-note">
+                            <p>
                     Based in Blue Earth, MN — check our <a href="/calendar">calendar</a> to see where we’re parked next!
                 </p>
                 <p>

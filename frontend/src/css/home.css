@@ -1,59 +1,91 @@
-.homepage-content {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #fffaf0; /* soft taco-truck yellow/cream */
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
-  line-height: 1.7;
+.homepage {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
 }
 
-.homepage-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  color: #d62828; /* chili red */
+/* Hero */
+.hero {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                      url('https://images.unsplash.com/photo-1615870216519-2f9fa575fa5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    color: #fff;
+    text-align: center;
 }
 
-.homepage-content h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  color: #333;
+.hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
 }
 
-.homepage-content p {
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
-.homepage-content h3 {
-  font-size: 1.4rem;
-  margin-top: 2rem;
-  color: #007f5f; /* green, fresh look */
+.hero-button {
+    background-color: #f59e0b;
+    color: #fff;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+.menu-btn {
+    background-color: #f59e0b;
+    color: #fff;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
 }
 
-.homepage-content ul {
-  list-style: none;
-  padding-left: 1rem;
-  margin-bottom: 1.5rem;
+.hero-button:hover {
+    background-color: #d97706;
 }
 
-.homepage-content ul li {
-  font-size: 1.1rem;
-  margin: 0.5rem 0;
-  position: relative;
-  padding-left: 1.2rem;
+/* Sections */
+.about, .menu-preview, .location-note {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
 }
 
-
-
-.homepage-content a {
-  color: #d62828;
-  text-decoration: none;
-  font-weight: bold;
+.about h2,
+.menu-preview h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #222;
 }
 
-.homepage-content a:hover {
-  text-decoration: underline;
+.menu-preview ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+}
+
+.menu-preview li {
+    margin-bottom: 0.5rem;
+}
+
+.location-note {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.location-note a {
+    color: #f59e0b;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.location-note a:hover {
+    text-decoration: underline;
 }

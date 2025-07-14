@@ -8,24 +8,27 @@ import CalendarPage from './pages/Calendar.jsx';
 import ContactPage from './pages/contact.jsx';
 import MenuPage from './pages/menu.jsx';
 import HomePage from './pages/Home.jsx';
-import AboutPage from './pages/About.jsx';
-
+import Footer from './components/Footer.jsx';
 
 
 
 function App() {
   return (
-    <div className="App">
+    <div className="app-wrapper">
       <NavBar />
-      <Routes>
-        <Route path="" element={<HomePage />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/menu" element={<MenuPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/calendar" element={<CalendarPage />} />
-      </Routes>
+      <main className="app-content">
+        <Routes>
+          <Route path="" element={<HomePage />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/calendar" element={<CalendarPage />} />
+        </Routes>
+      </main>
+      <Footer />
     </div>
   );
 }
+
 
 export default App

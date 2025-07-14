@@ -8,7 +8,7 @@ import CalendarPage from './pages/Calendar.jsx';
 import ContactPage from './pages/contact.jsx';
 import MenuPage from './pages/menu.jsx';
 import HomePage from './pages/Home.jsx';
-import Footer from './components/Footer.jsx';
+import Footer from './components/footer.jsx';
 
 
 

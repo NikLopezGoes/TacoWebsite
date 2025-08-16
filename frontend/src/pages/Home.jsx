@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/home.css';
+import { Link } from 'react-router-dom';
 
 function HomePage() {
     return (
@@ -8,8 +9,8 @@ function HomePage() {
                 <div className="hero-content">
                     <h1 className="hero-title">Kris' Tacos</h1>
                     <p className="hero-subtitle">Authentic Mexican Flavor, Straight from Blue Earth</p>
-                    <a href="/calendar" className="hero-button">Find the Truck</a>
-                    <a href="/menu" className="menu-btn">View Menu</a>
+                    <Link to="/calendar" className="hero-button">Find the Truck</Link>
+                    <Link to="/menu" className="menu-btn">View Menu</Link>
                 </div>
             </section>
 

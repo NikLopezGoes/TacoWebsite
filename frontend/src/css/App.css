@@ -17,3 +17,9 @@ html, body, #root {
 .app-content {
   flex: 1;
 }
+
+@media (max-width: 768px) {
+  .app-content {
+    padding: 0 10px;
+  }
+}

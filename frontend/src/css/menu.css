@@ -56,3 +56,27 @@
   font-weight: bold;
   color: #d62828;
 }
+
+@media (max-width: 768px) {
+  .menu-container h1 {
+    font-size: 2rem;
+  }
+
+  .menu-grid {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-grid {
+    grid-template-columns: 1fr; /* stack menu cards */
+  }
+
+  .menu-img {
+    height: 160px; /* shrink images */
+  }
+
+  .menu-info h2 {
+    font-size: 1.1rem;
+  }
+}

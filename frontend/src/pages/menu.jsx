@@ -13,7 +13,7 @@ const menuItems = [
     name: 'Street Corn',
     description: 'Grilled corn on the cob smothered in mayo, cotija cheese, chili powder, and lime juice. Classic Mexican elote style!',
     price: '$5.00',
-    image: '/images/street-corn.jpg',
+    image: '/images/corn.jpg',
   },
   {
     name: 'Nachos',
@@ -23,9 +23,9 @@ const menuItems = [
   },
   {
     name: 'Potato',
-    description: 'Golden fried potato bites dusted with cinnamon sugar—a sweet and crispy treat.',
+    description: 'Golden fried spiral potato with the option to add ketchup and sour cream!',
     price: '$4.00',
-    image: '/images/potato.jpg',
+    image: '/images/spiralpotato.png',
   },
   {
     name: 'Quesadilla',
@@ -49,25 +49,25 @@ const menuItems = [
     name: 'Torta',
     description: 'A Mexican sandwich on fresh bread with beans, queso fresco, lettuce, mayo, mustard, jalapeños (optional), and your choice of meat.',
     price: '$12.00',
-    image: '/images/torta.jpg',
+    image: '/images/torta.jpeg',
   },
   {
     name: 'Magonada',
     description: 'A sweet and spicy mango treat with chamoy, Tajín, and tamarind candy. A fan-favorite refresher!',
     price: '$5.00',
-    image: '/images/magonada.jpg',
+    image: '/images/mangonada.jpeg',
   },
   {
     name: 'Soda',
     description: 'Ice-cold canned sodas to pair with your meal. Choose from a variety of flavors.',
     price: '$2.50',
-    image: '/images/soda.jpg',
+    image: '/images/soda.jpeg',
   },
   {
     name: 'Quesabirria Tacos (3 count)',
     description: 'Rich and cheesy beef birria tacos grilled to perfection, served with a side of warm consommé for dipping.',
     price: '$13.00',
-    image: '/images/quesabirria.jpg',
+    image: '/images/birria.jpeg',
   },
 ];
 

@@ -19,7 +19,7 @@ function HomePage() {
                 <p>
                     Kris' Tacos is a family owned and operated food truck based in Blue Earth, Minnesota. The idea for the food truck was brought to 
                     life when we realized there was a need for authentic Mexican food in the community. The food truck has since made many appearances in the 
-                    south central Minnesota area. We serve traditional Mexican dishes made with fresh ingredients and authentic recipes.
+                    South Central Minnesota area. We serve traditional Mexican dishes made with fresh ingredients and authentic recipes.
                 </p>
                 <p>
                     Our food is made with quality ingredients and a lot of love. We take pride in serving delicious food that brings people together. You do not want to miss
@@ -27,7 +27,7 @@ function HomePage() {
                 </p>
                 <p>
                     We would love to connect with the community and hear your feedback. Feel free to reach out to us through our <Link to="/contact">contact page</Link>! 
-                    We also offer catering services for events of all sizes. Please checjk out our <Link to="/calendar">calendar</Link> to see where we will be next!
+                    We also offer catering services for events of all sizes. Please check out our <Link to="/calendar">calendar</Link> to see where we will be next!
                 </p>
             </section>
             <section className="contact-info">

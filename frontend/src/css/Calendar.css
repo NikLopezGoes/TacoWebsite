@@ -1,67 +1,262 @@
-.calendar-page {
+.calendarPage {
+  color: #0f172a;
+}
+
+.calendarHero {
+  padding: 3.25rem 1.25rem 2.25rem;
+  background:
+    radial-gradient(900px 350px at 15% 10%, rgba(245, 158, 11, 0.22), transparent 65%),
+    radial-gradient(800px 320px at 90% 15%, rgba(168, 50, 50, 0.22), transparent 60%),
+    linear-gradient(180deg, rgba(255, 250, 240, 1), rgba(255, 250, 240, 0.75));
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.calendarHeroInner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.calendarTitle {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.calendarSubtitle {
+  margin: 0.85rem 0 0;
+  max-width: 65ch;
+  font-size: 1.1rem;
+  color: rgba(15, 23, 42, 0.78);
+}
+
+.calendarMain {
+  padding: 2rem 1.25rem 3.25rem;
+}
+
+.calendarGrid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.calendarCard,
+.eventsCard {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 18px;
+  padding: 1.25rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(8px);
+}
+
+.calendarCardHeader {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 24px;
-  min-height: 100vh;
-  box-sizing: border-box;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
 }
 
-.calendar-title {
-  font-size: 2rem;
-  color: #ff914d;
-  margin-bottom: 20px;
+.calendarCardTitle {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #7b1e1e;
+  letter-spacing: -0.01em;
 }
 
-.react-calendar {
+.calendarWidget {
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* react-calendar theming (scoped) */
+.calendarPage .react-calendar {
   width: 100%;
-  max-width: 600px;
-  background: white;
-  border-radius: 12px;
-  padding: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 14px;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.95);
   font-family: 'Segoe UI', sans-serif;
 }
 
-.event-list {
-  margin-top: 24px;
+.calendarPage .react-calendar__navigation button {
+  border-radius: 12px;
+}
+
+.calendarPage .react-calendar__navigation button:enabled:hover,
+.calendarPage .react-calendar__navigation button:enabled:focus {
+  background: rgba(15, 23, 42, 0.06);
+}
+
+.calendarPage .react-calendar__tile {
+  border-radius: 12px;
+}
+
+.calendarPage .react-calendar__tile:enabled:hover,
+.calendarPage .react-calendar__tile:enabled:focus {
+  background: rgba(15, 23, 42, 0.06);
+}
+
+.calendarPage .react-calendar__tile--active {
+  background: rgba(37, 99, 235, 0.95);
+  color: #fff;
+}
+
+.calendarPage .react-calendar__tile--active:enabled:hover,
+.calendarPage .react-calendar__tile--active:enabled:focus {
+  background: rgba(37, 99, 235, 0.95);
+  color: #fff;
+}
+
+.calendarPage .react-calendar__tile--now {
+  background: rgba(245, 158, 11, 0.14);
+}
+
+.calendarPage .react-calendar__tile--now.react-calendar__tile--active {
+  background: rgba(37, 99, 235, 0.95);
+  color: #fff;
+}
+
+.calendarNotice {
+  margin-top: 0.9rem;
+  border-radius: 14px;
+  padding: 0.85rem 0.95rem;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(15, 23, 42, 0.04);
+  color: rgba(15, 23, 42, 0.75);
+}
+
+.calendarNotice--error {
+  border-color: rgba(185, 28, 28, 0.28);
+  background: rgba(185, 28, 28, 0.06);
+  color: rgba(185, 28, 28, 0.95);
+  font-weight: 650;
+}
+
+.eventsColumn {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.eventList {
+  margin-top: 0.9rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.eventCard {
+  border-radius: 16px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(15, 23, 42, 0.03);
+  padding: 0.9rem 0.95rem;
+}
+
+.eventTop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.eventTitle {
+  font-weight: 850;
+  letter-spacing: -0.01em;
+}
+
+.eventTime {
+  color: rgba(15, 23, 42, 0.65);
+  font-weight: 650;
+  font-size: 0.95rem;
+}
+
+.eventDescription {
+  margin-top: 0.5rem;
+  color: rgba(15, 23, 42, 0.72);
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.eventsEmpty {
+  margin: 0.85rem 0 0;
+  color: rgba(15, 23, 42, 0.7);
+}
+
+.upcomingList {
+  margin-top: 0.9rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.upcomingItem {
   width: 100%;
-  max-width: 600px;
+  text-align: left;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
+  padding: 0.75rem 0.85rem;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.85rem;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
 }
 
-.event-card {
-  background: #ffffff;
-  border-left: 5px solid #ff914d;
-  padding: 12px;
-  margin-bottom: 16px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+.upcomingItem:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
 }
 
-@media (max-width: 768px) {
-  .calendar-title {
-    font-size: 1.5rem;
-    text-align: center;
-  }
+.upcomingDate {
+  font-weight: 850;
+  color: rgba(15, 23, 42, 0.85);
+  white-space: nowrap;
+}
 
-  .react-calendar {
-    padding: 5px;
-    font-size: 0.9rem;
-  }
+.upcomingTitle {
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
 
-  .event-card {
-    font-size: 0.9rem;
-    padding: 10px;
+.upcomingTime {
+  margin-top: 0.1rem;
+  color: rgba(15, 23, 42, 0.65);
+  font-weight: 650;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+  .calendarGrid {
+    grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 480px) {
-  .react-calendar {
-    width: 100%;
-    font-size: 0.8rem;
+@media (max-width: 640px) {
+  .calendarHero {
+    padding: 2.5rem 1rem 1.75rem;
   }
 
-  .event-card {
-    padding: 8px;
+  .calendarMain {
+    padding: 1.5rem 1rem 2.75rem;
+  }
+
+  .calendarCard,
+  .eventsCard {
+    padding: 1rem;
+  }
+
+  .calendarCardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .upcomingItem {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
   }
 }

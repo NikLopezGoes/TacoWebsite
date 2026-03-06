@@ -1,48 +1,41 @@
 import React from 'react';
-import '../css/footer.css';
 import { Link } from 'react-router-dom';
+import '../css/footer.css';
 
 function Footer() {
   const year = new Date().getFullYear();
 
   return (
     <footer className="footer">
-      <div className="footer-content">
-        <div className="footer-top">
-          <div className="footer-brand">
-            <div className="footer-logo" aria-hidden="true">KT</div>
-            <div className="footer-brandText">
-              <div className="footer-brandName">Kris' Tacos</div>
-              <div className="footer-tagline">Authentic Mexican Flavor, Straight from Blue Earth</div>
-            </div>
+      <div className="footer-container">
+        {/* Left: Brand */}
+        <div className="footer-section brand-area">
+          <div className="footer-logo">
+            <img className="footer-logoImg" src="/images/TacoGuy.png" alt="Taco Guy logo" />
           </div>
-
-          <div className="footer-columns">
-            <div className="footer-section footer-links">
-              <h4 className="footer-heading">Quick Links</h4>
-              <Link to="/" className="footer-link">Home</Link>
-              <Link to="/menu" className="footer-link">Menu</Link>
-              <Link to="/contact" className="footer-link">Contact</Link>
-              <Link to="/calendar" className="footer-link">Calendar</Link>
-            </div>
-
-            <div className="footer-section footer-contact">
-              <h4 className="footer-heading">Contact</h4>
-              <p>
-                <span className="footer-muted">Email</span><br />
-                <a className="footer-link" href="mailto:tacomyfriend@gmail.com">tacomyfriend@gmail.com</a>
-              </p>
-              <p>
-                <span className="footer-muted">Phone</span><br />
-                <a className="footer-link" href="tel:5075258243">(507) 525-8243</a>
-              </p>
-            </div>
+          <div className="brand-text">
+            <span className="brand-name">Kris' Tacos</span>
+            <span className="brand-sub">Blue Earth, MN</span>
           </div>
         </div>
 
-        <div className="footer-bottom">
-          <p>© {year} Kris' Tacos. All rights reserved.</p>
+        {/* Center: Links */}
+        <nav className="footer-section nav-area" aria-label="Footer">
+          <Link to="/" className="f-link">Home</Link>
+          <Link to="/menu" className="f-link">Menu</Link>
+          <Link to="/calendar" className="f-link">Calendar</Link>
+          <Link to="/contact" className="f-link">Contact</Link>
+        </nav>
+
+        {/* Right: Contact */}
+        <div className="footer-section contact-area">
+          <a href="mailto:tacomyfriend@gmail.com">tacomyfriend@gmail.com</a>
+          <a href="tel:5075258243">(507) 525-8243</a>
         </div>
+      </div>
+
+      <div className="footer-bottom-line">
+        <p>© {year} Kris' Tacos. All rights reserved.</p>
       </div>
     </footer>
   );

@@ -1,162 +1,135 @@
 .footer {
-  background-color: #1e293b;
-  color: #f8fafc;
-  padding: 0.75rem 1.25rem;
-  font-family: 'Poppins', sans-serif;
-  border-top: 1px solid #334155;
-  width: 100%;
+  background-color: #121212;
+  color: white;
+  padding: 40px 0 20px 0;
+  width: 100%; /* Use the whole screen */
+  border-top: 4px solid #f59e0b;
 }
 
-.footer-content {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.footer-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  padding: 0.25rem 0;
-}
-
-.footer-brand {
-  display: flex;
+.footer-container {
+  display: flex; 
+  justify-content: space-between; /* This spreads the pods out */
   align-items: center;
-  gap: 0.75rem;
+  flex-wrap: wrap;
+  width: 90%; /* Leaves a 5% margin on each side */
+  max-width: 1800px; /* Prevents it from getting TOO wide on giant TVs */
+  margin: 0 auto; /* Centers the container itself */
+}
+
+/* Give each of the 3 sections equal width so the middle is centered */
+.footer-section {
+  flex: 1; 
+  display: flex;
   min-width: 220px;
 }
 
-.footer-logo {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  background: rgba(252, 211, 77, 0.12);
-  border: 1px solid rgba(252, 211, 77, 0.28);
-  display: grid;
-  place-items: center;
-  color: #fcd34d;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  flex: 0 0 auto;
+/* Left Section: Brand */
+.brand-area {
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
 }
 
-.footer-brandText {
+.brand-text {
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
+  gap: 2px;
 }
 
-.footer-brandName {
+.footer-logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.footer-logoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.brand-name {
+  display: block;
+  font-size: 1.4rem;
   font-weight: 800;
-  font-size: 1rem;
-  line-height: 1.1;
 }
 
-.footer-tagline {
-  color: #cbd5e1;
-  font-size: 0.85rem;
-  line-height: 1.2;
-  max-width: 40ch;
+.brand-sub {
+  font-size: 0.7rem;
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.footer-columns {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.75rem;
+/* Center Section: Links */
+.nav-area {
+  justify-content: center; /* Puts the links in the dead center */
+  gap: 30px;
   flex-wrap: wrap;
 }
 
-.footer-section {
-  flex: 1;
-  min-width: 200px;
-}
-
-.footer-heading {
-  font-size: 1rem;
-  margin: 0 0 0.4rem 0;
-  color: #fcd34d;
-}
-
-.footer-links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.footer-link {
-  font-size: 0.85rem;
-  color: #facc15;
+.f-link {
+  color: white;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s ease;
+  transition: 0.2s;
 }
 
-.footer-link:hover {
-  color: #fde68a;
+.f-link:hover {
+  color: #f59e0b;
 }
 
-.footer-contact p {
-  margin: 0.35rem 0 0 0;
+/* Right Section: Contact */
+.contact-area {
+  flex-direction: column;
+  align-items: flex-end; /* Pushes contact info to the far right */
+  gap: 5px;
 }
 
-.footer-muted {
-  color: #94a3b8;
-  font-size: 0.75rem;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-
-.footer-contact,
-.footer-bottom {
-  font-size: 0.85rem;
-  color: #cbd5e1;
-}
-
-.footer-contact a {
-  color: #bae6fd;
+.contact-area a {
+  color: white;
   text-decoration: none;
+  font-size: 0.9rem;
+  opacity: 0.8;
 }
 
-.footer-contact a:hover {
+.contact-area a:hover {
+  opacity: 1;
   text-decoration: underline;
 }
 
-.footer-bottom {
-  border-top: 1px solid rgba(51, 65, 85, 0.8);
-  margin-top: 0.75rem;
-  padding-top: 0.6rem;
+/* Bottom Copyright Bar */
+.footer-bottom-line {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.4;
 }
 
-.footer-bottom p {
-  margin: 0;
-}
-
-/* Responsive */
 @media (max-width: 768px) {
-  .footer-content {
+  .footer {
+    padding: 28px 0 16px 0;
+  }
+
+  .footer-container {
+    gap: 18px;
+  }
+
+  .footer-section {
+    min-width: 0;
+  }
+
+  .brand-area,
+  .nav-area,
+  .contact-area {
+    justify-content: center;
+    align-items: center;
     text-align: center;
-  }
-
-  .footer-top {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .footer-brand {
-    justify-content: center;
-  }
-
-  .footer-columns {
-    justify-content: center;
-  }
-
-  .footer-links {
-    align-items: center;
-  }
-
-  .footer-link {
-    font-size: 0.9rem;
   }
 }

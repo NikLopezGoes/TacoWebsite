@@ -44,7 +44,9 @@ function NavBar() {
       <header className={`siteHeader ${isHidden ? 'isHidden' : ''}`}>
         <nav className="navBar" aria-label="Primary">
           <Link to="/" className="navBrand" aria-label="Kris' Tacos Home">
-            <span className="navBrandMark">KT</span>
+            <span className="navBrandMark" aria-hidden="true">
+              <img className="navBrandImg" src="/images/TacoGuy.png" alt="" />
+            </span>
             <span className="navBrandText">Kris' Tacos</span>
           </Link>
 

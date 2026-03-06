@@ -1,81 +1,98 @@
 import React from 'react';
-import '../css/home.css';
 import { Link } from 'react-router-dom';
+import '../css/home.css';
 
 function HomePage() {
     return (
         <div className="homepage">
-            {/* Hero Section */}
+            {/* Hero Section using your custom photo */}
             <section className="hero">
-                <div className="hero-content">
-                    <div className="hero-text-wrapper">
+                <div className="hero-overlay">
+                    <div className="hero-content">
+                        <p className="hero-eyebrow">Blue Earth, Minnesota</p>
                         <h1 className="hero-title">Kris' Tacos</h1>
                         <div className="hero-divider"></div>
-                        <p className="hero-subtitle">Authentic Mexican Flavor, Straight from Blue Earth</p>
-                    </div>
-                    <div className="hero-buttons">
-                        <Link to="/calendar" className="hero-button primary">Find the Truck</Link>
-                        <Link to="/menu" className="hero-button secondary">View Menu</Link>
+                        <p className="hero-tagline">Authentic Mexican Flavor, Straight from Blue Earth</p>
+                        <div className="hero-buttons">
+                            <Link to="/calendar" className="btn btn-primary">Find the Truck</Link>
+                            <Link to="/menu" className="btn btn-secondary">View Menu</Link>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* Features Section */}
-            <section className="features">
-                <div className="feature-card">
-                    <div className="feature-icon">🌮</div>
-                    <h3>Authentic Recipes</h3>
-                    <p>Traditional Mexican dishes made with fresh ingredients</p>
+            {/* Features/Selling Points */}
+            <section className="home-section features">
+                <div className="section-header">
+                    <p className="section-kicker">Why people come back</p>
+                    <h2 className="section-title">Fresh, fast, and full of flavor</h2>
+                    <p className="section-subtitle">Family recipes, quality ingredients, and a menu built for taco lovers.</p>
                 </div>
-                <div className="feature-card">
-                    <div className="feature-icon">👨‍👩‍👧‍👦</div>
-                    <h3>Family Owned</h3>
-                    <p>Made with quality ingredients and a lot of love</p>
-                </div>
-                <div className="feature-card">
-                    <div className="feature-icon">📍</div>
-                    <h3>South Central MN</h3>
-                    <p>Serving communities throughout the region</p>
+
+                <div className="features-grid">
+                    <div className="feature-item">
+                        <div className="icon-pill" aria-hidden="true">🌮</div>
+                        <h3>Fresh & Authentic</h3>
+                        <p>Traditional family recipes passed down through generations.</p>
+                    </div>
+                    <div className="feature-item">
+                        <div className="icon-pill" aria-hidden="true">❤️</div>
+                        <h3>Family Owned</h3>
+                        <p>Made with quality ingredients and a lot of love.</p>
+                    </div>
+                    <div className="feature-item">
+                        <div className="icon-pill" aria-hidden="true">📍</div>
+                        <h3>South Central MN</h3>
+                        <p>Serving Blue Earth and communities throughout the region.</p>
+                    </div>
                 </div>
             </section>
 
-            {/* About Section */}
-            <section className="about">
-                <div className="about-content">
-                    <h2 className="section-title">Our Story</h2>
+            {/* Menu Preview Section */}
+            <section className="home-section menu-preview">
+                <div className="section-header">
+                    <p className="section-kicker">Fan favorites</p>
+                    <h2 className="section-title">Popular picks</h2>
+                    <p className="section-subtitle">A few staples you’ll see people ordering again and again.</p>
+                </div>
+                <div className="preview-grid">
+                    <div className="preview-card">
+                        <h4>Street Tacos</h4>
+                        <p>Authentic corn tortillas with cilantro, onions, and your choice of meat.</p>
+                    </div>
+                    <div className="preview-card">
+                        <h4>Loaded Tortas</h4>
+                        <p>Mexican sandwiches toasted to perfection with fresh ingredients.</p>
+                    </div>
+                    <div className="preview-card">
+                        <h4>Daily Specials</h4>
+                        <p>From Quesabirria to seasonal favorites—check what's on the grill!</p>
+                    </div>
+                </div>
+                <div className="menu-cta">
+                    <Link to="/menu" className="text-link">See Full Menu →</Link>
+                </div>
+            </section>
+
+            {/* Our Story / About */}
+            <section className="home-section about-section">
+                <div className="about-container">
+                    <div className="section-header">
+                        <p className="section-kicker">Our story</p>
+                        <h2 className="section-title">From our family to yours</h2>
+                    </div>
                     <div className="about-text">
-                        <p className="lead">
-                            Kris' Tacos is a family owned and operated food truck based in Blue Earth, Minnesota. The idea for the food truck was brought to 
-                            life when we realized there was a need for authentic Mexican food in the community. The food truck has since made many appearances in the 
-                            South Central Minnesota area. We serve traditional Mexican dishes made with fresh ingredients and authentic recipes.
+                        <p>
+                            Kris' Tacos is a family owned and operated food truck based in Blue Earth, Minnesota. 
+                            We realized there was a need for authentic Mexican food in our community, 
+                            and we've been hitting the road ever since.
                         </p>
                         <p>
-                            Our food is made with quality ingredients and a lot of love. We take pride in serving delicious food that brings people together. You do not want to miss
-                            anything! From our Tacos to our Tortas, we have something for everyone.
+                            Every plate is made with quality ingredients and a whole lot of heart. 
+                            We take pride in bringing people together over delicious, traditional meals.
                         </p>
-                        <p>
-                            We would love to connect with the community and hear your feedback. Feel free to reach out to us through our <Link to="/contact" className="inline-link">contact page</Link>! 
-                            We also offer catering services for events of all sizes. Please check out our <Link to="/calendar" className="inline-link">calendar</Link> to see where we will be next!
-                        </p>
+                        <Link to="/contact" className="btn btn-outline">Inquire About Catering</Link>
                     </div>
-                </div>
-            </section>
-
-            {/* Contact Section */}
-            <section className="contact-info">
-                <div className="contact-card">
-                    <h2 className="section-title">Get In Touch</h2>
-                    <div className="contact-items">
-                        <div className="contact-item">
-                            <span className="contact-label">Email</span>
-                            <a href="mailto:tacomyfriend@gmail.com" className="contact-value">tacomyfriend@gmail.com</a>
-                        </div>
-                        <div className="contact-item">
-                            <span className="contact-label">Phone</span>
-                            <a href="tel:5075258243" className="contact-value">(507) 525-8243</a>
-                        </div>
-                    </div>
-                    <Link to="/contact" className="contact-button">Contact Us</Link>
                 </div>
             </section>
         </div>

@@ -48,9 +48,16 @@
   border-radius: 12px;
   display: grid;
   place-items: center;
+  overflow: hidden;
   background: rgba(248, 250, 252, 0.14);
   border: 1px solid rgba(248, 250, 252, 0.28);
-  font-size: 1.05rem;
+}
+
+.navBrandImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .navBrandText {

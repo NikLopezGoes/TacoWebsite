@@ -4,33 +4,15 @@ import { Link, NavLink } from 'react-router-dom';
 
 function NavBar() {
   const [isHidden, setIsHidden] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const lastScrollYRef = useRef(0);
+  const accumulatedRef = useRef(0);
+  const lastDirRef = useRef(null);
   const tickingRef = useRef(false);
 
   useEffect(() => {
-    const mq = window.matchMedia('(max-width: 640px)');
-    const syncMobile = () => setIsMobile(mq.matches);
-    syncMobile();
-
-    // matchMedia listener (Safari fallback supported)
-    if (mq.addEventListener) mq.addEventListener('change', syncMobile);
-    else mq.addListener(syncMobile);
-
-    return () => {
-      if (mq.removeEventListener) mq.removeEventListener('change', syncMobile);
-      else mq.removeListener(syncMobile);
-    };
-  }, []);
-
-  useEffect(() => {
-    // On mobile, keep the header stable (no auto-hide) to avoid jitter.
-    if (isMobile) {
-      setIsHidden(false);
-      return;
-    }
-
     lastScrollYRef.current = window.scrollY || 0;
+    accumulatedRef.current = 0;
+    lastDirRef.current = null;
 
     const onScroll = () => {
       const currentY = window.scrollY || 0;
@@ -42,16 +24,29 @@ function NavBar() {
         const lastY = lastScrollYRef.current;
         const goingDown = currentY > lastY;
         const delta = Math.abs(currentY - lastY);
+        const dir = goingDown ? 'down' : 'up';
 
         // Ignore tiny scroll jitter
-        if (delta < 12) {
+        if (delta < 6) {
           tickingRef.current = false;
           return;
         }
 
-        // Always show at the very top; otherwise hide on scroll-down, show on scroll-up
-        const shouldHide = goingDown && currentY > 80;
-        setIsHidden(shouldHide);
+        // Accumulate scroll in one direction to avoid flicker on mobile.
+        if (lastDirRef.current !== dir) {
+          accumulatedRef.current = 0;
+          lastDirRef.current = dir;
+        }
+        accumulatedRef.current += delta;
+
+        // Always show at the very top
+        if (currentY <= 20) {
+          setIsHidden(false);
+        } else if (dir === 'down' && accumulatedRef.current > 40) {
+          setIsHidden(true);
+        } else if (dir === 'up' && accumulatedRef.current > 30) {
+          setIsHidden(false);
+        }
 
         lastScrollYRef.current = currentY;
         tickingRef.current = false;
@@ -60,7 +55,7 @@ function NavBar() {
 
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, [isMobile]);
+  }, []);
 
   return (
       <header className={`siteHeader ${isHidden ? 'isHidden' : ''}`}>

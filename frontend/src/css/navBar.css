@@ -1,13 +1,14 @@
 /* Navbar Styles */
 .siteHeader {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
   background: linear-gradient(to right, #a83232, #7b1e1e);
   border-bottom: 1px solid rgba(51, 65, 85, 0.75);
   box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.18);
-  transition: transform 220ms ease;
-  will-change: transform;
+  transition: none; /* no fancy animation */
 }
 
 .siteHeader.isHidden {

@@ -4,10 +4,32 @@ import { Link, NavLink } from 'react-router-dom';
 
 function NavBar() {
   const [isHidden, setIsHidden] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const lastScrollYRef = useRef(0);
   const tickingRef = useRef(false);
 
   useEffect(() => {
+    const mq = window.matchMedia('(max-width: 640px)');
+    const syncMobile = () => setIsMobile(mq.matches);
+    syncMobile();
+
+    // matchMedia listener (Safari fallback supported)
+    if (mq.addEventListener) mq.addEventListener('change', syncMobile);
+    else mq.addListener(syncMobile);
+
+    return () => {
+      if (mq.removeEventListener) mq.removeEventListener('change', syncMobile);
+      else mq.removeListener(syncMobile);
+    };
+  }, []);
+
+  useEffect(() => {
+    // On mobile, keep the header stable (no auto-hide) to avoid jitter.
+    if (isMobile) {
+      setIsHidden(false);
+      return;
+    }
+
     lastScrollYRef.current = window.scrollY || 0;
 
     const onScroll = () => {
@@ -22,7 +44,7 @@ function NavBar() {
         const delta = Math.abs(currentY - lastY);
 
         // Ignore tiny scroll jitter
-        if (delta < 8) {
+        if (delta < 12) {
           tickingRef.current = false;
           return;
         }
@@ -38,7 +60,7 @@ function NavBar() {
 
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [isMobile]);
 
   return (
       <header className={`siteHeader ${isHidden ? 'isHidden' : ''}`}>

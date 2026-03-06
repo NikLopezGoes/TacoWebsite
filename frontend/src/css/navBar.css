@@ -104,6 +104,11 @@
     min-height: unset;
   }
 
+  /* Mobile: keep the header stable (no translate animations) */
+  .siteHeader {
+    transition: none;
+  }
+
   .navBrand {
     justify-content: center;
   }

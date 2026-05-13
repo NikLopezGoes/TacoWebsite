@@ -11,6 +11,10 @@ body {
   --light: #f9f9f9;
   --white: #ffffff;
 }
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 html, body, #root {
   height: 100%;
   margin: 0;

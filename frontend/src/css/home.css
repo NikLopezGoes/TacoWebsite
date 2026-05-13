@@ -43,7 +43,7 @@
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* Parallax effect */
-  min-height: 85vh;
+  min-height: 33vh;
   display: flex;
   position: relative;
 }

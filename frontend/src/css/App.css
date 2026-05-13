@@ -29,6 +29,13 @@ html, body, #root {
 
 @media (max-width: 768px) {
   .app-content {
-    padding: 0 10px;
+    /* Match .navBar vertical padding: mobile (≤640) is tighter than default */
+    padding: calc(72px + 1.3rem) 10px 0;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .app-content {
+    padding-top: calc(72px + 2.2rem);
   }
 }
